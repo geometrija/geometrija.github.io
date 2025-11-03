@@ -1,600 +1,846 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 
 <html>
-	
-	<head>
-	<meta name="generator" content="Hugo 0.119.0">
-	<title>Geometrija</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="">
-	<meta name="author" content="">
-	
-	
-	
-	
-	
-	<link rel="stylesheet" href="./css/main.min.css">
-	
-	
-	
-	<noscript><link rel="stylesheet" href="./css/noscript.min.css" /></noscript>
-	
 
-	
-	<link rel="stylesheet" href="./css/fontawesome-all.min.css">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Geometrija 2025</title>
+
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="css/custom-fonts.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
 
 </head>
 
+<body>
 
-	<body class="is-preload">
 
-		
-		<div id="wrapper" class="divided">
+<div class="container-fluid main-container">
 
-	
-<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-    <div class="content">
-        <h1>Femininity in Geometric Abstraction</h1>
-        <p class="major">Miona Marta Marković  
-</p>
-        <div class="social-icons">
-            
-                <a href="https://www.facebook.com/GeometrijskaApstrakcija" class="social-icon">
-                    <i class="icon brands style2 fa-facebook"></i>
-                </a>
-            
-                <a href="https://www.instagram.com/miona.marta.markovic/" class="social-icon">
-                    <i class="icon brands style2 fa-instagram"></i>
-                </a>
-            
-        </div>
-        <p>Sedamnaest vrhunskih autorki geometrijske apstrakcije izlažu zajedno<br>Seventeen top female authors of geometric abstraction exhibiting together<br><a href="#enpub">Biographies</a> | <a href="#katalog">From the exhibition catalog text</a>
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot01" class="button primary large wide smooth-scroll-middle">Autorke</a></li>
-        </ul>        
-    </div>
-    <div class="image">
-        <img src="images/landing.png" alt="Hugo Story" />
-    </div>
-</section>
 
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot01">
-    <div class="content">
-        <h2>Bosiljka Zirojević Lečić</h2>
-        <p>Rođena je 1971. godine u Novom Sadu. Diplomirala na Akademiji umetnosti u Novom Sadu 1994. godine, Odsek slikarstvo. Postdiplomske studije, Odsek slikarstvo, završila na istoj Akademiji 2000. godine. Redovni je profesor na Akademiji umetnosti u Novom Sadu, uža oblast Slikarstvo. Član ULUV-a i ULUS-a od 1995. godine. U okviru umetničke grupe Multiflex sarađuje sa drugim umetnicima u realizaciji multimedijalnih umetničkih projekata. Od 1992. godine izlagala na preko 130 kolektivnih izložbi, u zemlji i inostranstvu. Izlagala 23 puta samostalno, dobitnica je više nagrada za umetnički rad. Koordinator više projekata u oblasti likovne umetnosti i edukacije, kao i inkluzivnog rada u okviru kreativnog izražavanja.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot02" class="button">Dalje</a></li>
-        </ul>
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="img/logo/geometrija202px.png" /></a>
     </div>
-    <div class="image">
-        <img src="images/01_bosiljka_zirojevic_lecic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot02">
-    <div class="content">
-        <h2>Danja Tekić</h2>
-        <p>Rođena je 1989. godine u Beogradu, završila je osnovne 2010. i master akademske studije 2012. godine na Grafičkom odseku Fakulteta likovnih umetnosti u Beogradu, gde je 2018. godine i doktorirala sa temom „Ars Combinatoria kao metod vizuelne spekulacije, postavka mobilnih grafičkih struktura”, mentor dr um. Mileta Prodanović. Priredila je 14 samostalnih izložbi u Srbiji, i učestvovala je na velikom broju grupnih izložbi u zemlji i inostranstvu (Makedonija, Slovenija, Bosna i Hercegovina, Rumunija, Italija, Poljska, Nemačka, Francuska, Holandija, Velika Britanija, Portugal, Rusija, Švajcarska, Sjedinjene Američke Države, Brazil, Egipat, Kina). Dobitnica je Nagrade za grafiku na XXXI Oktobarskom salonu u Kovinu 2017. godine, nagrade Marko Krsmanović – za inovativni pristup grafici, Fakultet likovnih umetnosti 2012. godine, kao i Nagrade Fakulteta likovnih umetnosti za grafiku 2011. godine. Članica je Udruženja likovnih umetnika Srbije (ULUS) u statusu samostalnog umetnika.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot03" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/02_danja_tekic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot03">
-    <div class="content">
-        <h2>Emilija Radojičić</h2>
-        <p>Emilija Radojičić je vizuelna umetnica rođena 1989. godine, koja trenutno živi i stvara u Beogradu. Osnovne umetničke studije završava na Fakultetu Primenjenih Umetnosti u Beogradu, a master studije pri Univerzitetu Umetnosti, takođe u Beogradu, na odseku za Teoriju Umetnosti i Medija sa temom: „Zanat i/ili umetnost? Teorija i praksa tkanja u umetničkom radu Ani Albers”. Njeni skoriji radovi se kreću između umetnosti i dizajna, dok se bavi istraživanjem trodimenzionalnim i taktilnim aspektima crteža, tekstila i skulpture kroz različite materijale i medije. Emilija je inicijalno svoju praksu započela crtežom i slikom, dalje istražujući svoje unutarnje svetove i apstrakciju, danas uglavnom interpretirane kroz taktilna, trodimenzionalna dela. Do sada je realizovala mnoge samostalne i grupne izložbe, audio/vizuelne performanse, kolaboracije i publikacije sa različitim umetnicima, kustosima, institucijama, galerijama i brendovima.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot04" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/03_emilija_radoicic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot04">
-    <div class="content">
-        <h2>Jagoda Živadinović</h2>
-        <p>Jagoda Živadinović rođena je 1949. godine u Ćupriji. Diplomirala je i magistrirala na Fakultetu likovnih umetnosti na u Beogradu, Smeru slikarstvo u klasi profesora Stojana Ćelića. Potom je boravila na studijskim usavršavanjima: Antverpen (National Hoger Institut), Belgiji i Francuskoj (Pariz, Cité des Arts). Od 1979. godine Jagoda Živadinović je članica ULUS-a. Dobitnica je nekoliko prestižnih nagrada: 1978/79. Galerija KNU u Beogradu za Najbolju samostalnu izložbu u sezoni 1978/79; Nagrada Pol Sezan 1992. godine u Francuskoj (Bourget, Prix Peinture, 35e Salon Arts Formes Couleurs) i 1993. godine dobija Nagradu grada Buržea u Francuskoj (Bourget, Prix de la Ville du Bourget, Prix Peinture, 36e Salon Arts Formes Couleurs). Jagoda Živadinović je učesnica mnogih likovnih kolonija. U Srbiji je samostalno izlagala u Beogradu, Zemunu, Ćurpiji, Sremskoj Mitrovici, Rumi, Pančevu; u Hrvatskoj u Motovunu i Francuskoj u Isi Le Mulino – okolina Pariza, Parizu, i Avinjonu. Jagoda živi i radi u Zemunu i na Poljoprivrednom dobru Dobričevo.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot05" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/04_jagoda_zivadinovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot05">
-    <div class="content">
-        <h2>Jasna Gulan Ružić</h2>
-        <p>Jasna Gulan Ružić je rođena 1976. godine u Novom Sadu. Diplomirala je 2002. i magistrirala 2007. godine pod mentorstvom prof. Slobodana Kneževića na Likovnom departmanu Akademije umetnosti u Novom Sadu, na Katedri za grafiku. Doktorske studije iz oblasti likovnih umetnosti završila je 2022. na istoj Akademiji, pod mentorstvom prof. Višnje Petrović. Od 2019. godine zaposlena je na Katedri za crtanje u zvanju docenta. Njena polja istraživanja su crtež, grafika, psihoanaliza umetnosti, konzervacija i restauracija. Aktivno izlaže od 1999. godine i do sada je izlagala na 20 samostalnih i oko 67 grupnih izložbi u zemlji i inostranstvu. Dobitnik je više nagrada za svoj rad. Član je SULUV-a, ULUS-a, Grafičkog kolektiva Beograd, Društva konzervatora Srbije, Međunarodnog saveta za spomenike i spomeničke celine - ICOMOS i Filozofskog centra za psihoanalizu - CERIP. Od 2004. do 2019. godine bila je zaposlena u Pokrajinskom zavodu za zaštitu spomenika kulture u Petrovaradinu kao slikar-konzervator, gde je učestvovala u preko 40 projekata vezanih za istraživanje, konzervaciju i restauraciju pokretnog i nepokretnog kulturnog nasleđa u Srbiji, Hrvatskoj, Rumuniji i Mađarskoj. Od 2020. godine član je redakcije časopisa Glasnik društva konzervatora Srbije i stručni saradnik Instituta za filozofiju i interdisciplinarne studije, Novi Sad, gde vodi kurs Psihoanaliza umetnosti.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot06" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/05_jasna_gulan_ruzic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot06">
-    <div class="content">
-        <h2>Korina Gubik</h2>
-        <p>Korina Gubik rođena je 1983. godine u Senti. 2007. godine diplomirala je na Akademiji Umetnosti u Novom Sadu, na Departmanu za slikarstvo, u klasi profesora Jovana Rakidžića. Korina je članica Saveza udruženja likovnih umetnika Vojvodine od 2008. godine, a u periodu od 2012. do 2014. godine bila je u statusu samostalnog umetnika. Trenutno je zaposlena u Gimnaziji za talentovane učenike „Boljai” u Senti kao profesorka stručnih predmeta na likovnom odseku. Umetnički rad Korine Gubik je više puta nagrađivan: 2006. godine Nagrada Galerije Matice srpske na konkursu „Španija – pogled sa strane”; 2007. godine Nagrada „Perspetive 06” multimedijalnog centra Art klinika za najperspektivnijeg studenta na Departmanu za slikarstvo; 2007. godine Nagrada 36. Novosadskog Salona; 2017. godine Nagrada „FORUM 2017”, godišnja nagrada izdavačke kuće Forum za likovnu umetnost; 2020. godine Nagrada „Nađapati Kukac Peter”, godišnja nagrada za likovnu umetnost. Od 2008. godine Korina Gubik ima aktivnu izlagačku aktivnost, predstavila se na šesnaest samostalnih izložbi u Srbiji: Subotica, Senta, Vrbas, Ođaci, Bačka Topola, Bečej, Novi Sad, Kraljevo i Vranje. Delo Korine Gubik je 2022. godine otkupljeno od strane Savremene galerije Subotice.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot07" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/06_Korina_Gubik.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot07">
-    <div class="content">
-        <h2>Mila Gvardiol</h2>
-        <p>Mila Gvardiol rođena je 1979. godine u Beogradu. Diplomirala je na Fakultetu primenjenih umetnosti u Beogradu na Odseku zidno slikarstvo. Doktorirala je na Interdisciplinarnim studijima Univerziteta umetnosti u Beogradu na Odseku za digitalnu umetnost. Članica je ULUS-a i ULUPUDS-a. Zaposlena je u zvanju vanrednog profesora i dekana na Fakultetu za digitalnu produkciju u Sremskoj Kamenici. Na Fakultetu primenjenih umetnosti u Beogradu predavala je od 2015. do 2023. godine. Izlagala je na 39 samostalnih i oko 300 grupnih izložbi. Učesnica je likovnih kolonija i festivala digitalne umetnosti. Nekoliko puta je nagrađivana za svoj umetnički rad.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot08" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/07_mila_gvardiol.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot08">
-    <div class="content">
-        <h2>Miljana Radenković</h2>
-        <p>Dr um. Miljana Radenković rođena je 1989. godine u Nišu. Diplomirala je i master akademske studije završila na Fakultetu umetnosti Univerziteta u Nišu, na Studijskom programu – Grafički dizajn. Doktorirala je na Fakultetu primenjenih umetnosti Univerziteta umetnosti u Beogradu, na smeru Primenjene umetnosti i dizajna. Autor je više umetničkih projekata i objavljenih radova iz oblasti grafičkog dizajna. Dobitnica je nekoliko nagrada iz područja primenjenih umetnosti. Priredila je 28 samostalnih izložbi u zemlji i učestvovala je na više od 150 kolektivnih izložbi u zemlji i inostranstvu. Članica je ULUPUDS-a. Na Fakultetu umetnosti Univerziteta u Nišu radi u zvanju docenta za užu umetničku oblast – Grafički dizajn.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot09" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/08_miljana_radenkovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot09">
-    <div class="content">
-        <h2>Milka Žunjanin</h2>
-        <p>Milka Žunjanin rođena je 1994. godine u Kruševcu. Srednju umetničku školu završila je u Kraljevu, Smer tehničar za konzervaciju i restauraciju 2013. godine. Nakon završene srednje škole upisuje Akademiju umetnosti u Novom Sadu, Smer slikarstvo u klasi profesorke Bosiljke Zirojević Lečić, pod čijim mentorstvom završava i master studije. Master rad pod nazivom „DEkonstrukcija prostora” odbranila je 2019. godine. Učestvovala na pet samostalnih izložbi u Beogradu, Nišu, Užicu i Trsteniku i na više grupnih u Srbiji, Crnoj Gori i Bugarskoj.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot10" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/09_milka_zunjanin.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot10">
-    <div class="content">
-        <h2>Miona Marta Marković</h2>
-        <p>Miona Marta Marković rođena je 1979. godine u Somboru. Diplomirala je 2004. godine na Fakultetu Primenjenih umetnosti u Beogradu, na Odseku zidno slikarstvo, a potom je 2007. godine magistrirala na Accademia di Belle Arti u Napulju. Godine 2018. odbranila je doktorsku tezu na Università Sapienza (Rim) na Smeru savremene istorije umetnosti. Članica je ULUS-a od 2006. i od 2009. godine stiče status samostalnog umetnika, a 2023. godine postala je članica i ULUPUDS-a. Publici se samostalno predstavila dvadeset devet puta i učestvovala je na preko sedamdeset kolektivnih izložbi prevashodno u Italiji i Srbiji. Uzima udela na stručnim kongresima, kao i na međunarodnim likovnim kolonijama. Pored slikarstva bavi se i teorijom - pisanjem recenzija i kataloga vizuelnim umetnicima i istraživanjem za svoj autorski projekat.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot11" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/10_miona_marta_markovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot11">
-    <div class="content">
-        <h2>Nina Todorović</h2>
-        <p>Rođena je u Beogradu 1973. godine. Diplomirala je 1999. godine na FLU, Odsek slikarstvo, u klasi profesora Čedomira Vasića. Od 2000. godine član je ULUS-a, sa statusom samostalnog umetnika. Magistrirala je 2002. godine, u klasi istog profesora. Doktorirala je 2014. godine na FLU u Beogradu pod mentorstvom prof. dr Milete Prodanovića. Od 1995. godine aktivno izlaže, a do sada je imala 49 samostalnih i preko 200 grupnih izložbi. Učestvovala je i na brojnim likovnim kolonijama, radionicama i veb projektima u zemlji i inostranstvu (Kanada, Belgija, Mađarska, Makedonija, SAD, Slovenija, Estonija, Nemačka, Italija, Švajcarska, Rusija, Švedska, Velika Britanija, Australija, Urugvaj, Argentina, Egipat, Francuska, Austrija). Dobitnik je više domaćih i međunarodnih nagrada. Radovi joj se nalaze u stranim i domaćim muzejima i javnim i privatnim kolekcijama.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot12" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/11_nina_todorovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot12">
-    <div class="content">
-        <h2>Sanja Đorđević</h2>
-        <p>Sanja Đorđević je rođena u Nišu 1990. godine. Diplomirala je na Fakultetu umetnosti u Nišu na Odseku slikarstvo. Učestvovala je na brojnim grupnim izložbama u zemlji, među kojima je i izložba Niš Art Fondacije „Mladi 2018”. Nagrađivana je od strane fakulteta za najbolju sliku 2018. godine i za postignute rezultate na master akademskim studijama 2020. godine. Geometrija kao višegodišnji predmet umetničkog istraživanja iznedrila je seriju slika (akril na platnu) pod nazivom „ Arhetip kosmičkog delovanja”, koja je posvećena putu u središte sebe, putu beskrajne transformacije i večitom uzdizanju uma, tela i duha. Trenutno se bavi grafičkim dizajnom i komercijalnom digitalnom ilustracijom. Živi i radi u Nišu.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot13" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/12_sanja_djordjevic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot13">
-    <div class="content">
-        <h2>Sonja Kostić</h2>
-        <p>Sonja Kostić je rođena 1966. godine u Beogradu. Diplomirala je na Fakultetu likovnih umetnosti u Beogradu 1994. godine na Slikarskom odseku, u klasi profesora Momčila Antonovića. Potom je 1996. godine i magistrirala na FLU kod istog profesora. Od 1993. godine Sonja Kostić postala je članica ULUS-a. Učestvovala je na preko šezdeset kolektivnih izložbi u zemlji i inostranstvu, dok je samostalno izlagala u Beogradu (Cinema REX, SKC, KCB, Biblioteka grada Beograda, Salon MSU Beograd, Manakova kuća (Projekat Urbazona), FLU, Galerija Zvono, Galerija Blok), Negotinu, Subotici, Parizu, Torontu. Njena dela nalaze se u kolekcijama: Ministarstva kulture u Beogradu, Dunav osiguranju, Modernoj galeriji u Gornjem Milanovcu, Metropolisu u Beogradu i Galerie Projection Ada Bruxelles u Belgiji. Takođe, dela Sonje Kostić možemo naći u privatnim kolekcijama u Srbiji, Hrvatskoj, Sloveniji, Crnoj Gori, Češkoj Republici, Austriji, Nemačkoj, Francuskoj, Belgiji, SAD, Kanadi idt. Sonja Kostić je sarađivala na sledećim projektima: Urbazona sa Miomirom Grujić Flekom; Project INITIAVE EQUIDISTANCE Internacionalni projekat organizacija Academy of Fine Arts, Vienna, Austria, MAK Vienna - putujuća izložba “Stop the violence” – selekcija Zorana Erića; Galerija III Beograd – Internacionalni projekat Kolektivni san, sa grupom Коллектибнние Деиства i grupom KunsOst, Austria.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot14" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/13_sonja_kostic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot14">
-    <div class="content">
-        <h2>Sylvia Kovjenić</h2>
-        <p>Sylvia Kovjenić rođena 1976. u Njukaslu (Newcastle) Južnoafrička Republika. Pohađala je dva smera na Višoj školi likovnih i primenjenih umetnosti u Beogradu (1995-1999). Diplomirala na Fakultetu primenjenih umetnosti i dizajna u Beogradu (2004) smer Zidno slikarstvo, Odsek Konzervacija-restauracija. Nakon diplomiranja od 2004-05. godine boravi kao gostujući student na Umetničkoj akademiji u Diseldorfu (Düsseldorf) Nemačka. Član je ULUPUDS-a od 2005. godine sa statusom samostalnog umetnika. Učestvovala na više od 90 kolektivnih izložbi u zemlji i inostranstvu i više likovnih kolonija, do sada održala 26 samostalnih izložbi. Radovi joj se nalaze u javnim i privatnim kolekcijama. Dobitnica je nekoliko pohvala i nagrada za svoj rad. Živi i radi u Beogradu.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot15" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/14_sylvia_kovjenic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot15">
-    <div class="content">
-        <h2>Tamara Dragan</h2>
-        <p>Tamara Dragan je rođena 1990. godine u Beloj Crkvi. Akademiju umetnosti u Novom Sadu upisuje 2009. godine na Odseku vajarstva u klasi profesorice Gordane Kaljalović, a master studije završava 2016. godine u klasi profesora Tomislava Todorovića. Učestvovala je na više grupnih izložbi, između kojih možemo izdvojiti izložbu Niš Art Fondacije „Mladost 2018”, kao i internacionalnu izložbu „Banatski Paviljon”, u Temišvaru u Rumuniji. Do sada je imala šest samostalnih izlaganja u Beogradu, Inđiji, Novom Sadu i Beloj Crkvi. Dobitnica je nagrade Umetničke livnice „Stanišić” za najuspešniji umetnički rad iz stručno umetničke discipline vajanje 2013. godine. Članica je SULUV-a od 2020. godine i ULUS-a od 2021. godine.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot16" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/15_tamara_dragan.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot16">
-    <div class="content">
-        <h2>Višnja Petrović</h2>
-        <p>Višnja Petrović rođena je 1960. godine u Novom Sadu. Godine 1984. diplomirala je na Fakultetu likovnih umetnosti u Beogradu, na Odseku slikarstvo. Zatim je magistrirala na istom fakultetu i odseku 1987. godine. Zaposlena je od 1993. godine na Akademiji Umetnosti u Novom Sadu. Izabrana za redovnog profesora na predmetu Crtanje sa tehnologijom od 2006. godine. Višnja Petrović je članica ULUV-a, njena dela nalaze se u više kolekcija u Srbiji i Švajcarskoj. Samostalno je izlagala jedanaest puta u Novom Sadu, Nišu, Zrenjaninu i Beogradu. Dobitnica je više nagrada: 1990. godine Nagrada XIX Novosadskog Oktobarskog salona za slikarstvo; 1993. godine Nagrada Jugoslovenskog bijenala akvarela u Zrenjaninu; 1998. godine Nagrada XXVIII Novosadskog Oktobarskog salona za crtež i 2018. godine Pohvala za intermediju XIV Bijenala minijature u Gornjem Milanovcu.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot17" class="button">Dalje</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/16_visnja_petrovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot17">
-    <div class="content">
-        <h2>Vjera Damjanović</h2>
-        <p>Vjera Damjanović rođena je 1949. godine na Cetinju. Diplomirala je 1976. godine na Fakultetu likovnih umetnosti, na Odseku slikarstvo u klasi profesora Stojana Ćelića, a potom je 1979. godine i magistrirala. Članica je ULUS-a od 1977. godine, a 2010. godine ostvaruje status istaknutog umetnika. Vjera je više puta nagrađivana umetnica: 1972. godine dobija Godišnju nagradu Fakulteta likovnih umetnosti za crtež; 1975. godine nagradu studenata Fakulteta likovnih umetnosti za slikarstvo; 2007. godine nagradu Jesenjeg salona Udruženja likovnih umetnika Srbije; 2012. godine nagradu grada Beograda za likovno, primenjeno stvaralaštvo, vizuelne i proširene medije za 2011. godinu i 2022. godine od Muzeja Zepter dobija nagradu „Stojan Ćelić”. Vjera Damjanović aktivno izlaže od 1974. godine, uzevši učešća na više od sto pedeset kolektivnih izložbi u zemlji i inostranstvu, dok se samostalno predstavila na dvadeset i dve izložbe. Njena dela nalaze se u muzejskim zbirkama i privatnim kolekcijama u zemlji i u svetu.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot01en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/17_vjera_damjanovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right" id="enpub">
-    <div class="content">
-        <h2>Femininity in Geometric Abstraction</h2>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="about.html">Geometrija</a>
+</li>
+<li>
+  <a href="media.html">Media</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Archive
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="geometrija2023.html">Geometrija 2023</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         
-        <ul class="actions stacked">
-            <li><a href="#spot01en" class="button">Authors</a></li>
-        </ul>
-    </div>
-    
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot01en">
-    <div class="content">
-        <h2>Bosiljka Zirojević Lečić</h2>
-        <p>She was born in 1971 in Novi Sad. She graduated from the Academy of Arts in Novi Sad in 1994, Department of Painting. She completed her postgraduate studies, Department of Painting, at the same Academy in 2000. She is a full professor at the Academy of Arts in Novi Sad, specialized in Painting. She has been a member of ULUV (Association of Applied Arts Artists and Designers of Vojvodina) and ULUS (Association of Fine Artists of Serbia) since 1995. As part of the artistic group Multiflex, she collaborates with other artists in the realization of multimedia art projects. Since 1992, she has exhibited in over 130 group exhibitions, at home and abroad. She has had 23 solo exhibitions and has received several awards for her artistic work. She is the coordinator of several projects in the field of fine arts and education, as well as inclusive work within creative expression.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot02en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/01_bosiljka_zirojevic_lecic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot02en">
-    <div class="content">
-        <h2>Danja Tekić</h2>
-        <p>She was born in 1989 in Belgrade, completed her undergraduate studies in 2010 and master's degree in 2012 at the Graphic Department of the Faculty of Fine Arts in Belgrade, where she also obtained her Ph.D. in 2018 with the thesis "Ars Combinatoria as a Method of Visual Speculation, the Arrangement of Mobile Graphic Structures," under the mentorship of Dr. Mileta Prodanović. She has organized 14 solo exhibitions in Serbia and participated in a large number of group exhibitions at home and abroad (Macedonia, Slovenia, Bosnia and Herzegovina, Romania, Italy, Poland, Germany, France, the Netherlands, United Kingdom, Portugal, Russia, Switzerland, United States, Brazil, Egypt, China). She is the recipient of the Graphic Award at the 31st October Salon in Kovin in 2017, the Marko Krsmanović Award – for an innovative approach to graphics, Faculty of Fine Arts in 2012, and the Faculty of Fine Arts Award for graphics in 2011. She is a member of the Association of Fine Artists of Serbia (ULUS) with the status of an independent artist.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot03en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/02_danja_tekic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot03en">
-    <div class="content">
-        <h2>Emilija Radojičić</h2>
-        <p>Emilija Radojičić is a visual artist born in 1989, who currently lives and works in Belgrade. She completed her undergraduate studies at the Faculty of Applied Arts in Belgrade and her master's degree at the University of Arts in Belgrade, in the Department of Theory of Art and Media, with the thesis: "Craft and/or Art? Theory and Practice of Weaving in the Artistic Work of Anni Albers." Her recent works navigate between art and design, exploring the three-dimensional and tactile aspects of drawing, textiles, and sculpture through various materials and mediums. Emilija initially began her practice with drawing and painting, further exploring her inner worlds and abstraction, which today are mostly interpreted through tactile, three-dimensional works. To date, she has realized many solo and group exhibitions, audio/visual performances, collaborations, and publications with various artists, curators, institutions, galleries, and brands.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot04en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/03_emilija_radoicic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot04en">
-    <div class="content">
-        <h2>Jagoda Živadinović</h2>
-        <p>Jagoda Živadinović is a Serbian artist born in 1949 in Ćuprija. She completed both her undergraduate and master's degrees at the Faculty of Fine Arts in Belgrade, specializing in painting, under the guidance of Professor Stojan Ćelić. She furthered her studies with professional development programs in Antwerp (National Hoger Institut), Belgium, and in France (Paris, Cité des Arts). Since 1979, Jagoda Živadinović has been a member of the Association of Fine Artists of Serbia (ULUS). Her work has been recognized with several prestigious awards: in 1978/79, she received the Gallery KNU in Belgrade award for the Best Solo Exhibition of the season 1978/79; in 1992, she received the Paul Cezanne Award in France (Bourget, Prix Peinture, 35e Salon Arts Formes Couleurs); and in 1993, she was awarded the City of Bourges Prize in France (Bourget, Prix de la Ville du Bourget, Prix Peinture, 36e Salon Arts Formes Couleurs). Jagoda Živadinović has participated in many art colonies and has held solo exhibitions in Serbia (Belgrade, Zemun, Ćuprija, Sremska Mitrovica, Ruma, Pančevo), Croatia (Motovun), and France (Isi Le Mulino – near Paris, Paris, and Avignon). She lives and works in Zemun and on the Dobričevo Agricultural Estate.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot05en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/04_jagoda_zivadinovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot05en">
-    <div class="content">
-        <h2>Jasna Gulan Ružić</h2>
-        <p>Jasna Gulan Ružić was born in 1976 in Novi Sad. She graduated in 2002 and completed her master's degree in 2007 under the mentorship of Prof. Slobodan Knežević at the Fine Arts Department of the Academy of Arts in Novi Sad, at the Department for Printmaking. She completed her doctoral studies in the field of fine arts in 2022 at the same Academy, under the mentorship of Prof. Višnja Petrović. Since 2019, she has been employed at the Department of Drawing with the title of assistant professor. Her research fields are drawing, printmaking, psychoanalysis of art, conservation, and restoration. She has been actively exhibiting since 1999 and has participated in 20 solo and about 67 group exhibitions at home and abroad. She has received several awards for her work. She is a member of SULUV, ULUS, Graphic Collective Belgrade, Conservation Society of Serbia, International Council on Monuments and Sites - ICOMOS, and the Philosophical Center for Psychoanalysis - CERIP. From 2004 to 2019, she was employed at the Provincial Institute for the Protection of Cultural Monuments in Petrovaradin as a painter-conservator, where she participated in over 40 projects related to the research, conservation, and restoration of movable and immovable cultural heritage in Serbia, Croatia, Romania, and Hungary. Since 2020, she has been a member of the editorial board of the Bulletin of the Conservation Society of Serbia and a professional associate at the Institute for Philosophy and Interdisciplinary Studies, Novi Sad, where she leads the course Psychoanalysis of Art.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot06en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/05_jasna_gulan_ruzic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot06en">
-    <div class="content">
-        <h2>Korina Gubik</h2>
-        <p>Korina Gubik was born in 1983 in Senta. In 2007, she graduated from the Academy of Arts in Novi Sad, at the Department of Painting, in the class of Professor Jovan Rakidžić. Korina has been a member of the Association of Fine Artists of Vojvodina since 2008, and from 2012 to 2014, she was a freelance artist. She is currently employed at the "Boljai" High School for Talented Students in Senta as a teacher of professional subjects in the fine arts department. Korina Gubik's artistic work has been awarded multiple times: in 2006, she received the Matica Srpska Gallery Award at the "Spain - A Side View" competition; in 2007, the "Perspective 06" award from the multimedia center Art Clinic for the most promising student in the Department of Painting; in 2007, the 36th Novi Sad Salon Award; in 2017, the "FORUM 2017" annual award from the Forum publishing house for fine arts; in 2020, the "Nađapati Kukac Peter" annual award for fine arts. Since 2008, Korina Gubik has had an active exhibition activity, having presented herself in sixteen solo exhibitions in Serbia: Subotica, Senta, Vrbas, Ođaci, Bačka Topola, Bečej, Novi Sad, Kraljevo, and Vranje. In 2022, Korina Gubik's work was acquired by the Contemporary Gallery of Subotica.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot07en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/06_Korina_Gubik.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot07en">
-    <div class="content">
-        <h2>Mila Gvardiol</h2>
-        <p>Mila Gvardiol was born in 1979 in Belgrade. She graduated from the Faculty of Applied Arts in Belgrade, majoring in mural painting. She completed her PhD at the Interdisciplinary Studies of the University of Arts in Belgrade, specializing in digital arts. She is a member of ULUS (The Association of Fine Artists of Serbia) and ULUPUDS (The Association of Applied Arts Artists and Designers of Serbia). She holds the position of an associate professor and dean at the Faculty for Digital Production in Sremska Kamenica. She taught at the Faculty of Applied Arts in Belgrade from 2015 to 2023. She has exhibited in 39 solo and about 300 group exhibitions. She has participated in art colonies and digital art festivals. She has been awarded several times for her artistic work.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot08en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/07_mila_gvardiol.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot08en">
-    <div class="content">
-        <h2>Miljana Radenković</h2>
-        <p>Dr. Miljana Radenković was born in 1989 in Niš. She completed her undergraduate and master's academic studies at the Faculty of Arts at the University of Niš, in the Study Program - Graphic Design. She earned her doctorate at the Faculty of Applied Arts of the University of Arts in Belgrade, in the field of Applied Arts and Design. She is the author of several artistic projects and published works in the field of graphic design. She has received several awards in the field of applied arts. She has organized 28 solo exhibitions in the country and participated in more than 150 collective exhibitions at home and abroad. She is a member of ULUPUDS (The Association of Applied Arts Artists and Designers of Serbia). She works at the Faculty of Arts at the University of Niš with the title of assistant professor in the specific artistic field - Graphic Design.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot09en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/08_miljana_radenkovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot09en">
-    <div class="content">
-        <h2>Milka Žunjanin</h2>
-        <p>Milka Žunjanin was born in 1994 in Kruševac. She completed her high school education in Kraljevo, graduating in 2013 with a specialization in conservation and restoration. After finishing high school, she enrolled at the Academy of Arts in Novi Sad, majoring in painting in the class of Professor Bosiljka Zirojević Lečić, under whose mentorship she also completed her master's studies. She defended her master's thesis titled "DEconstruction of space" in 2019. She has participated in five solo exhibitions in Belgrade, Niš, Užice, and Trstenik, and in several group exhibitions in Serbia, Montenegro, and Bulgaria.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot10en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/09_milka_zunjanin.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot10en">
-    <div class="content">
-        <h2>Miona Marta Marković</h2>
-        <p>Miona Marta Marković was born in 1979 in Sombor. She graduated in 2004 from the Faculty of Applied Arts in Belgrade, Department of Mural Painting, and later in 2007, she completed her master's degree at the Accademia di Belle Arti in Naples. In 2018, she defended her doctoral thesis at the Università Sapienza in Rome in the field of contemporary art history. She has been a member of ULUS (The Association of Fine Artists of Serbia) since 2006 and gained the status of an independent artist in 2009. In 2023, she also became a member of ULUPUDS (The Association of Applied Arts Artists and Designers of Serbia). She has presented her work in twenty-nine solo exhibitions and has participated in over seventy group exhibitions primarily in Italy and Serbia. She takes part in professional congresses and international art colonies. In addition to painting, she is also engaged in theory - writing reviews and catalogues for visual artists and researching for her authorial project.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot11en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/10_miona_marta_markovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot11en">
-    <div class="content">
-        <h2>Nina Todorović</h2>
-        <p>She was born in Belgrade in 1973. She graduated in 1999 from the Faculty of Fine Arts (FLU), Department of Painting, in the class of Professor Čedomir Vasić. Since 2000, she has been a member of ULUS (The Association of Fine Artists of Serbia) with the status of an independent artist. She completed her master's degree in 2002, in the class of the same professor. She earned her doctorate in 2014 at the FLU in Belgrade under the supervision of Prof. Dr. Mileta Prodanović. She has been actively exhibiting since 1995 and to date, she has had 49 solo and over 200 group exhibitions. She has also participated in numerous art colonies, workshops, and web projects both domestically and internationally (Canada, Belgium, Hungary, North Macedonia, USA, Slovenia, Estonia, Germany, Italy, Switzerland, Russia, Sweden, United Kingdom, Australia, Uruguay, Argentina, Egypt, France, Austria). She is the recipient of several domestic and international awards. Her works can be found in foreign and domestic museums and in both public and private collections.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot12en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/11_nina_todorovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot12en">
-    <div class="content">
-        <h2>Sanja Đorđević</h2>
-        <p>Sanja Đorđević was born in Niš in 1990. She graduated from the Faculty of Arts in Niš, Department of Painting. She has participated in numerous group exhibitions in the country, including the Niš Art Foundation's "Young 2018" exhibition. She was awarded by the faculty for the best painting in 2018 and for her achievements in master's academic studies in 2020. Geometry, as a multi-year subject of artistic research, has given rise to a series of paintings (acrylic on canvas) titled "Archetype of Cosmic Action", which is dedicated to the journey into the self, a path of endless transformation and the eternal elevation of the mind, body, and spirit. She is currently engaged in graphic design and commercial digital illustration. She lives and works in Niš.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot13en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/12_sanja_djordjevic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot13en">
-    <div class="content">
-        <h2>Sonja Kostić</h2>
-        <p>Sonja Kostić was born in 1966 in Belgrade. She graduated from the Faculty of Fine Arts in Belgrade in 1994, Department of Painting, under Professor Momčilo Antonović. She also completed her master's studies at the same faculty under the same professor in 1996. Since 1993, Sonja Kostić has been a member of ULUS (the Association of Fine Artists of Serbia). She has participated in over sixty group exhibitions at home and abroad, and has had solo exhibitions in Belgrade (Cinema REX, SKC, KCB, Belgrade City Library, Salon of the Museum of Contemporary Art Belgrade, Manak's House (Urban Zone Project), FLU, Zvono Gallery, Blok Gallery), Negotin, Subotica, Paris, Toronto. Her works are part of collections including: the Ministry of Culture in Belgrade, Dunav Insurance, the Modern Gallery in Gornji Milanovac, Metropolis in Belgrade, and Galerie Projection Ada Brussels in Belgium. Additionally, Sonja Kostić's works can be found in private collections in Serbia, Croatia, Slovenia, Montenegro, the Czech Republic, Austria, Germany, France, Belgium, the USA, Canada, etc.  Sonja Kostić has collaborated on the following projects: Urban Zone with Miomir Grujić Fleka; Project INITIAVE EQUIDISTANCE, an international project organized by the Academy of Fine Arts, Vienna, Austria, MAK Vienna - traveling exhibition “Stop the violence” – selection by Zoran Erić; Gallery III Belgrade – International project Collective Dream, with the group Коллективные Действия and the group KunsOst, Austria.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot14en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/13_sonja_kostic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot14en">
-    <div class="content">
-        <h2>Sylvia Kovjenić</h2>
-        <p>Sylvia Kovjenić was born in 1976 in Newcastle, South Africa. She attended two programs at the School of Fine and Applied Arts in Belgrade (1995-1999). She graduated from the Faculty of Applied Arts and Design in Belgrade in 2004, specializing in Wall Painting, Department of Conservation-Restoration. After graduating, she spent 2004-05 as a visiting student at the Art Academy in Düsseldorf, Germany. Since 2005, she has been a member of ULUPUDS (the Association of Applied Artists and Designers of Serbia) with the status of an independent artist. She has participated in more than 90 group exhibitions at home and abroad and several art colonies, and so far, she has held 26 solo exhibitions. Her works are part of public and private collections. She has received several commendations and awards for her work. She lives and works in Belgrade.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot15en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/14_sylvia_kovjenic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot15en">
-    <div class="content">
-        <h2>Tamara Dragan</h2>
-        <p>Tamara Dragan was born in 1990 in Bela Crkva. She enrolled in the Academy of Arts in Novi Sad in 2009 in the Department of Sculpture, in the class of Professor Gordana Kaljalović, and completed her master's studies in 2016 in the class of Professor Tomislav Todorović. She has participated in several group exhibitions, including the Niš Art Foundation's "Youth 2018" exhibition and the international exhibition "Banat Pavilion" in Timișoara, Romania. So far, she has had six solo exhibitions in Belgrade, Inđija, Novi Sad, and Bela Crkva. She is the recipient of the "Stanišić" Art Foundry award for the most successful artistic work in the professional art discipline of sculpture in 2013. She has been a member of SULUV (The Association of Fine Artists of Vojvodina) since 2020 and ULUS (The Association of Fine Artists of Serbia) since 2021.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot16en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/15_tamara_dragan.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="spot16en">
-    <div class="content">
-        <h2>Višnja Petrović</h2>
-        <p>Višnja Petrović was born in 1960 in Novi Sad. In 1984, she graduated from the Faculty of Fine Arts in Belgrade, in the Department of Painting. She then completed her master's studies at the same faculty and department in 1987. Since 1993, she has been employed at the Academy of Arts in Novi Sad. She was appointed as a full professor in the subject of Drawing with Technology in 2006. Višnja Petrović is a member of ULUV (The Association of Fine Arts Teachers of Vojvodina), and her works can be found in several collections in Serbia and Switzerland. She has held eleven solo exhibitions in Novi Sad, Niš, Zrenjanin, and Belgrade. She has received several awards: in 1990, the Painting Award of the 19th Novi Sad October Salon; in 1993, the Yugoslav Biennial of Watercolor in Zrenjanin Award; in 1998, the Drawing Award of the 28th Novi Sad October Salon; and in 2018, an Accolade for Intermedia at the 14th Biennial of Miniature in Gornji Milanovac.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#spot17en" class="button">Next</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/16_visnja_petrovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="spot17en">
-    <div class="content">
-        <h2>Vjera Damjanović</h2>
-        <p>Vjera Damjanović was born in 1949 in Cetinje. She graduated in 1976 from the Faculty of Fine Arts, in the Department of Painting under Professor Stojan Ćelić, and then completed her master's degree in 1979. She has been a member of ULUS (the Association of Fine Arts Artists of Serbia) since 1977, and in 2010 she achieved the status of a distinguished artist. Vjera has been awarded multiple times: in 1972, she received the Annual Award of the Faculty of Fine Arts for drawing; in 1975, the award from the students of the Faculty of Fine Arts for painting; in 2007, the Autumn Salon Award of the Association of Fine Artists of Serbia; in 2012, the City of Belgrade Award for fine, applied creativity, visual and extended media for the year 2011; and in 2022, she received the "Stojan Ćelić" award from the Zepter Museum. Vjera Damjanović has been actively exhibiting since 1974, participating in more than one hundred and fifty group exhibitions at home and abroad, while she has presented herself in twenty-two solo exhibitions. Her works can be found in museum collections and private collections both domestically and internationally.
-</p>
-        <ul class="actions stacked">
-            <li><a href="#katalog" class="button">Katalog/Catalogue</a></li>
-        </ul>
-    </div>
-    <div class="image">
-        <img src="images/17_vjera_damjanovic.jpg" alt="" />
-    </div>
-</section>
-	
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="katalog">
-    <div class="content">
-        <h2>Iz teksta kataloga izložbe | From the exhibition catalog text</h2>
-        <p>Izložba „Ženstvenost u geometrijskoj apstrakciji” je, nadam se, samo početak jednog novog fokusa na umetnost geometrijske apstrakcije u Srbiji uopšte. Izložbu sam organizovala i priredila bez ikakve institucionalne, finansijske podrške Republike Srbije, isključujući Modernu galeriju Lazarevac koja je u njenom konceptu prepoznala vrednost. Apstraktna umetnost pokazuje i danas, više od sto godina od kada je otkrivena u formi u kojoj je kao estetsko i konceptualno jedinstvo prepoznaje istorija umetnosti, potencijal za beskonačno istraživanje. Sva dela umetnica koje su uzele učešća u ovom projektu svedoče o tome. Ne vidim ni najmanjeg razloga zbog kojeg bi se moji napori na njenom razvoju i promociji završili ovom izložbom, i koristim priliku da ovde već iznesem plan da se ova izložba razvije u bijenalnu manifestaciju umetnosti geometrijske apstrakcije.<br><br>U prethodnim decenijama kod nas nije postojao sistematski napor da se identifikuje i predstavi doprinos ovoj grani apstrakne umetnosti od strane specifično umetnica. To je ono što me je primarno motivisalo da razvijem i implementiram ovakav projekat. Sigurna sam da dela sedamnaest umetnica, predstavljenih individualno ali jedinstvenog izraza, svedoče o jednoj izuzetnoj stvaralačkoj energiji koju možemo da prepoznamo kao celinu uprkos svim razlikama u pojedinačnim senzibilitetima. Smatram da je to dovoljan motiv za buduća okupljanja i istraživanja u pravcu koji je ova izložba tek skicirala. To je ujedno i razlog zbog kog sam, u ovom uvodnom razmatranju, izbegla sve pokušaje estetičko-konceptualnih klasifikacija, teorijske analize, čak i površne sistematizacije. Smatram da su učesnice ovog projekta i njihova dela rečiti u tom smislu sami za sebe, kao i da će teorijski diskurs savremene srpske geometrijske apstrakcije prirodno evoluirati iz daljih napora u okupljanju i komunikaciji. Nadam se da će mi se pružiti prilika da tom razvoju svedočim i u budućnosti.<br><hr>The exhibition 'Femininity in Geometric Abstraction' is, I hope, just the beginning of a new focus on the art of geometric abstraction in Serbia in general. I organized and prepared the exhibition without any institutional or financial support from the Republic of Serbia, excluding the Modern Gallery Lazarevac, which recognized its value in its concept. Abstract art shows even today, more than a hundred years since it was discovered in the form that history of art recognizes as an aesthetic and conceptual unity, the potential for infinite exploration. All the works of the artists who participated in this project testify to this. I see no reason whatsoever why my efforts in its development and promotion should end with this exhibition, and I take this opportunity to already announce the plan to develop this exhibition into a biennial event of geometric abstraction art.<br><br>In previous decades, there has been no systematic effort in our country to identify and present the contribution to this branch of abstract art specifically by female artists. This is what primarily motivated me to develop and implement such a project. I am sure that the works of the seventeen artists, presented individually but with a unified expression, testify to an extraordinary creative energy that we can recognize as a whole despite all the differences in individual sensibilities. I believe that this is sufficient motivation for future gatherings and research in the direction that this exhibition has only outlined. That is also the reason why, in this introductory consideration, I avoided all attempts at aesthetic-conceptual classifications, theoretical analysis, even superficial systematization. I believe that the participants of this project and their works are eloquent in this sense by themselves, and that the theoretical discourse of contemporary Serbian geometric abstraction will naturally evolve from further efforts in gathering and communication. I hope that I will have the opportunity to witness this development in the future.<br><br><b>Dr. Miona Marta Marković</b></p>
-        
-    </div>
-    
-</section>
-	
-<footer class="wrapper style1 align-center">
-    <div class="inner">
-        <ul class="icons">
-            
-            <li><a href="https://www.instagram.com/miona.marta.markovic" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-        </ul>
-        <p><b>Fotografija | Photography</b><br>Srđan Veljović, Danja Tekić, Marijana Janković, Ivana Tomanović, Mila Gvardiol, Miljana Radneković, Nina Todorović, Sanja Đorđević</p>
-        <p><b>Katalog | Catalogue<br></b>Mila Gvardiol</p>
-        <p><b>Web<br></b>Goran S. Milovanović</p>
-        <p><b>Podržala | Supported by<br></b><a href="https://www.datakolektiv.com/"><img src="./images/DK_Logo_100.png"></a></p>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Geometrija 2025</h1>
+
 </div>
-</footer>
 
 
-<script type="text/javascript" src="./js/fontawesome-all.min.js"></script>
+<div id="two-international-exhibitions-of-the-geometrija-project"
+class="section level4">
+<h4><i>Two international exhibitions of the Geometrija project</i></h4>
+<p><br></p>
+<p><img src="img/logo/geometrija400px.png" /> <br><br></p>
+<p><b>Geometrija 2025, 2nd Iteration</b> <strong>&gt;&gt;</strong>
+November 2025 <strong>&gt;&gt;</strong> new website of the Geometrija
+project <strong>&gt;&gt;</strong> opening of two international
+exhibitions of geometric abstraction art in renowned Belgrade galleries:
+<i>Prodajna galerija “Beograd”, Kosančićev venac 19</i> (6. November),
+<i>Galerija 73, Požeška 83a</i> (20. November).</p>
+<hr />
+</div>
+<div id="aleksander-jozef-olszewski-poland" class="section level3">
+<h3>Aleksander Jozef Olszewski (Poland)</h3>
+<p>Aleksander Józef Olszewski, born in 1944 in Radom, studied at the
+Academy of Fine Arts in Łódź in Professor Lech Kunka’s painting studio
+and Professor Aleksandra Pukaczewska’s design studio. Full professor.
+Founder and first Dean of the Faculty of Art at the University of Radom.
+Founder of the Pentagon and Rogatka Galleries, which has organised over
+200 exhibitions by artists from Poland and abroad. Founder of the yearly
+magazine of the Faculty of Art Arteria and its first editor-in-chief.
+Member of ZPAP. Creates based on his own system called Morphoism . Works
+in cycles relating to various plastic issues. He has participated in 500
+national and international exhibitions and 50 individual ones.
+Currently, he runs the Laboratory Gallery ‘System’ in Radom. By order of
+the President of the Republic of Poland of 29 September 2011, he was
+awarded the Knight’s Cross of the Order of Rebirth of Poland for
+outstanding merits in scientific and artistic work and for achievements
+in teaching and social activity.</p>
+<p><br></p>
+<p><img src="img/img2025/Aleksander%20Jo%CC%81zef%20Olszewski_01.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Aleksander%20Jo%CC%81zef%20Olszewski_02.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Aleksander%20Jo%CC%81zef%20Olszewski_03.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Aleksander%20Jo%CC%81zef%20Olszewski_04.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Aleksander%20Jo%CC%81zef%20Olszewski_05.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Aleksander%20Jo%CC%81zef%20Olszewski_06.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="beti-bricelj-slovenia" class="section level3">
+<h3>Beti Bricelj (Slovenia)</h3>
+<p>Beti Bricelj is Slovenian artist born in 1974 in Postojna. In 2000
+she graduated from Fine Arts on Arthouse – College of Visual Arts in
+Ljubljana. After completing her studies, she continued her education in
+Australia where she lived for a year. Bricelj participated in a research
+study of the Aboriginal culture organized by the Department of
+Aboriginal Affairs, Adelaide, South Australia. Beti Bricelj has been
+invited to numerous Art Symposium, and has presented work for
+independent and joint exhibitions in Slovenia and abroad Vienna,
+Cologne, Paris, Ostrava, Bratislava - exhibition Contemporary European
+Geometrical Tendencias, Royal Scottish Academy Annual Exhibition the
+largest and longest running exhibition of contemporary art and
+architecture in Scotland, including well known Vasarely Museum in
+Budapest and the renowned Museum of Geometric and MADI Art in Dallas -
+Texas, USA and elsewhere. Her work has been published in various
+international catalogues/books of contemporary art as well having work
+in public and private collections around the world. She has received
+numerous awards and recognitions for her work. As an artist she also
+took up an architectural challenge and designed the front of the
+Epicenter B2 Trade and Business Center in Postojna using her expertise
+in art. Beti Bricelj’s artwork is based on a grid that offers her an
+infinite number of possibilities. Within this framework, she explores
+the options of new serial paths, whereby deviating solutions, in
+particular, open up the most exciting perspectives for her. Bricelj is a
+member of the Slovenian Association of Fine Arts Societies, since 2002
+and a member of international group The Drawing Collective, since 2020.
+She lives and works in Postojna.</p>
+<p><br></p>
+<p><img src="img/img2025/Beti%20Bricelj_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Beti%20Bricelj_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="duša-jesih-slovenia" class="section level3">
+<h3>Duša Jesih (Slovenia)</h3>
+<p>Dusa Jesih was born on 1977 in Ljubljana, Slovenia. She lives and
+works in Ljubljana, the capital of Slovenia. In 1996 she finished high
+school of Art, Design and Photography in Ljubljana and in 2003 graduated
+from Fine Arts on Art house - College for Visual Art, Ljubljana. In 2006
+she post graduated in painting. For the present she lives and works
+little here, little there, in Ljubljana and in village Kal near Pivka,
+in capital and in the countryside, engaged in painting and printmaking;
+from classic painting to new media (as a technical support to her work).
+She participated in numerous exhibitions, colonies, residence programs
+and projects at home and abroad. Since 2004 she is a member of Community
+association of Slovenian artists ZDSLU. Since 2006 she is a mentor of
+art classes on Slovenian university for third life period. From 2006 to
+2007 she was twice on expert and research advanced studies in Paris,
+living in Cite Internationale des arts. From 2008 she has a status of
+self-employed artist.</p>
+<p><br></p>
+<p><img src="img/img2025/Dus%CC%8Ca%20Jesih_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Dus%CC%8Ca%20Jesih_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="jovan-dostanić-serbia" class="section level3">
+<h3>Jovan Dostanić (Serbia)</h3>
+<p>Jovan Dostanić is a sculptor, born in 1992 in Belgrade. He completed
+his undergraduate studies in 2014 at the Faculty of Fine Arts in
+Belgrade, Department of Sculpture, and his master’s studies in 2016 at
+the same faculty and department. He then enrolled in doctoral art
+studies at the same faculty, in the class of Professor Zdravko
+Joksimović, where in 2022 he defended his thesis titled “Order and Work
+in Metal – Exhibition of Sculptures and Reliefs.” During the 2016/2017
+academic year, Jovan Dostanić was engaged at the Faculty of Fine Arts as
+an associate on the subjects Sculpture Technologies and Metal Sculpture.
+In 2018, he participated in an art residency in Düsseldorf, Germany,
+where he took part in exhibition programs held in Cologne and Düsseldorf
+– Kunstpunkte 2018. Jovan Dostanić’s artistic work has received multiple
+awards. His sculptures are part of the Zepter Museum collection
+(acquired in 2016 and 2021), as well as private collections in
+Switzerland and France. He is a member of ULUS and has presented his
+work to the public in nine solo exhibitions in Serbia and Germany, as
+well as in twenty-five group exhibitions.</p>
+<p><br></p>
+<p><img src="img/img2025/Jovan%20Dostanic%CC%81_01.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Jovan%20Dostanic%CC%81_02.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="jovana-čajović-serbia" class="section level3">
+<h3>Jovana Čajović (Serbia)</h3>
+<p>Jovana Čajović is a visual artist and graphic designer, born in 1994
+in Kraljevo. She graduated from the Secondary School of Art in her
+hometown in 2013, after which she enrolled at the Academy of Arts in
+Novi Sad, Department of Painting. She completed her master’s studies in
+2019 at the Department of Drawing, in the class of Professor Višnja
+Petrović. During her studies, she received several scholarships, awards,
+and commendations for her work, among which the “Boško Petrović” Award
+for the most successful work in the professional-artistic discipline of
+painting stands out. Since 2014, Jovana Čajović has been actively
+exhibiting, and to date, she has participated in more than fifty group
+exhibitions. She has presented her work to the public in solo
+exhibitions at the Fine Art Gallery of the Ilija M. Kolarac Endowment in
+Belgrade, at the Student Cultural Center Fabrika in Novi Sad, and at the
+Laza Kostić Cultural Center in Sombor.</p>
+<p><br></p>
+<p><img src="img/img2025/Jovana%20C%CC%8Cajovic%CC%81_01.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Jovana%20C%CC%8Cajovic%CC%81_02.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="jozef-klaćik-serbia" class="section level3">
+<h3>Jozef Klaćik (Serbia)</h3>
+<p>Jozef Klaćik is a multimedia artist of Slovak origin, born in 1949 in
+Stara Pazova. He graduated from the Bogdan Šuput Secondary School of
+Applied Arts in Novi Sad in 1969. Two years later, in 1971, he enrolled
+at the Faculty of Fine Arts in Bratislava (Slovakia), where he earned a
+Master of Arts degree in 1976. After his studies, he worked as an art
+and graphic editor at the editorial offices of <em>Obzor</em> and
+<em>Hlas Ľudu</em> in Novi Sad, and later served as a professor at the
+Academy of Arts in Novi Sad. In addition to painting, Jozef Klaćik is
+also involved in sculpture, printmaking, photography, visual arts, and
+poetry. He is a member of the Association of Fine Artists of Vojvodina
+and Serbia, the Association of Slovak Printmakers, as well as the
+Association of Writers of Vojvodina. He has exhibited in around a
+thousand group exhibitions and about thirty solo exhibitions both in
+Serbia and abroad. He has taken part in study trips to Italy, Spain,
+France, the Netherlands, Belgium, Germany, Sweden, Denmark, Poland,
+Austria, and the Czech Republic. He has received twenty prestigious
+awards in Serbia and abroad, and his artworks are housed in about ten
+museums and galleries, as well as numerous private collections.</p>
+<p><br></p>
+<p><img src="img/img2025/Jozef%20Klac%CC%81ik_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Jozef%20Klac%CC%81ik_02.JPG" width="400" /></p>
+<hr />
+</div>
+<div id="lorenzo-bocca-italy" class="section level3">
+<h3>Lorenzo Bocca (Italy)</h3>
+<p>Architect, teach and painter. In 1976 he began an apprenticeship
+under Alberto Sartoris, a master of twentieth-century Rationalist
+architecture; in 1987 he organised and exhibition dedicated to Sartoris
+in the Pietro da Cemmo room of Sant’Agostino di Crema Cultural Center in
+Cremona. Bocca wrote the book “Alberto Sartoris, opere 1920/2985”,
+published by Turris, Cremona. In the same year, in conjunction with
+other artists and architects, he founded the CASMIPAC (Circle of Alberto
+Sartoris, International Movement for a humanistic Presence in
+Constructed Art). With MADI artist Angelo Giuseppe Bertolio, Bocca
+worked on a series of architectural projects which were the fruit of
+collaboration between artist and architect, such as the building in
+Soresina used for bowling and the extension to the Genivolta Cemetery in
+Cremona. Bocca subsequently carried out in-depth research on geometry in
+the works of Francesco Borromini. Following this, and white the starting
+point of research conducted by French priest Father Sébastien Truchet,
+he explored the infinite compositional possibilities generated by the
+division of a square by its diagonal. This led him to the work of
+Giorgio Scarpa and o models of rotational geometry and observations on
+bionics, in particular the structure of the mouth of a sea urchin, and
+to a collaboration with Giuseppe Trogu (lecturer in design at San
+Francisco State University) for a reinterpretation of Scarpa’s
+Aristotle’s Lantern for the 2014 international “Living Machine”
+conference in Milan. He has given talks at national conferences “Giorgio
+Scarpa’s transformable objects: geometry as Art, Science and Play” in
+Castel Bolognese (Ravenna, 2015), “The legacy of the great masters” at
+the Alberto Manzi Centre in Bologna (2016) and “Encounters with
+Mathematics” at Castel San Pietro Terme (Bologna, 2017). He took part in
+the conference of SMIT, the International Society for Medical Innovation
+and Technology, in Self (2016). He is author of the book
+“Soresinateatro”, the fruit of his historical research and concrete
+involvement following the decline of the nineteenth century Teatro
+Sociale in Soresina. Bocca explores the expressive potential of paper,
+creating sculptures achieved by folding sheets on the diagonal.He is a
+member of the Astractura artistic movement, adhering to the fundamental
+principle that line is the minimum and irreducible element for the
+construction of a work of art. Bocca has recently exhibited his works in
+the town of Nocera Inferiore as part of the collective show “Astrattismo
+Ecumenico”, in the Latina Biennial of Contemporary Art, in the
+collective show “Experimenta, dialoghi astrattisti” in Orta de Atella
+(Caserta) and in solo shows in the cloisters of the San Domenico complex
+in Crema, in Cremona’s Art Gallery and Town Hall, and in the Priamar
+Fortress in Savona.He collaborated with the sculptor Paolo Mezzadri in
+experiments on the expressive potential of iron and paper in the
+exhibition “Dialoghi” (Cremona, 2016). He produced thirty pencil and ink
+drawings for the Pulcinoelefante publishing house to illustrate the
+thirteenth-century text the “Three Character Classic”. He has a work on
+display at the European Community’s Joint Research Centre in Ispra
+(Varese) as part of the exhibition “Art Spaces. Nuclear Decommissioning:
+the science at the service of the future generation”. He has a triptych
+on permanent display in the Museum of Geometric and Madi Art in Dallas
+(Texas). He has published the book “Lorenzo Bocca”, sperimentare
+geometrie”, edited by Francesco pagliati, with Milanese gallery Scoglio
+di Quarto. He collaborates with the ICAS company for the 2018 calendar,
+creating thirteen new compositions.</p>
+<p><br></p>
+<p><img src="img/img2025/Lorenzo%20Bocca_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Lorenzo%20Bocca_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="maja-vukmanov-serbia" class="section level3">
+<h3>Maja Vukmanov (Serbia)</h3>
+<p>Maja Vukmanov is a visual artist, born in 1990 in Sombor. From 2009
+to 2013, she studied painting at the Academy of Arts, University of Novi
+Sad, where she graduated in 2013. She completed her master’s studies in
+2023 at the same faculty, under the mentorship of Professor Vidoje
+Tucović, presenting the work <em>Reversed Image Space</em> at the
+Gallery of the Academy of Arts, University of Novi Sad. To date, she has
+participated in four group exhibitions, among which the project
+<em>Differences</em>, held in 2023 at the Gallery of the Academy of Arts
+in Novi Sad, stands out.</p>
+<p><br></p>
+<p><img src="img/img2025/Maja%20Vukmanov_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Maja%20Vukmanov_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="marko-vukša-serbia" class="section level3">
+<h3>Marko Vukša (Serbia)</h3>
+<p>Marko Vukša, a sculptor by vocation, was born in 1977 in Belgrade. He
+graduated in 2001 from the Faculty of Applied Arts in Belgrade,
+Department of Sculpture. Since 2016, he has been engaged as a professor
+of Applied Sculpture at the same faculty. To date, he has held
+twenty-three solo exhibitions, both in Serbia and abroad (Japan,
+Israel). In addition, he has participated in two hundred and sixty group
+exhibitions in Serbia, Montenegro, Slovenia, Croatia, North Macedonia,
+Romania, Albania, Spain, France, Austria, the USA, China, Germany, and
+Japan. He has also been a participant and organizer of numerous art
+colonies, symposiums, and workshops in Serbia, Montenegro, Slovenia,
+Romania, China, and Japan. Marko Vukša’s sculptures—thirty-seven works
+in total—are found in public spaces, as well as in museum and cultural
+center collections in Serbia, China, Romania, and Japan. One of his more
+recognizable works is <em>Place for Two</em>, a granite sculpture
+installed in Changchun, China. Marko Vukša’s artistic work has received
+multiple awards—he is the recipient of 19 awards and recognitions for
+sculpture in Serbia, France, and China.</p>
+<p><br></p>
+<p><img src="img/img2025/Marko%20Vuks%CC%8Ca_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Marko%20Vuks%CC%8Ca_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="mice-poptsis-serbia" class="section level3">
+<h3>Mice Poptsis (Serbia)</h3>
+<p>Mice Poptsis is a sculptor, born in 1950 in Belgrade. He studied at
+the Faculty of Fine Arts in Belgrade, Department of Sculpture, in the
+class of Professor Nikola Koka Janković, where he graduated in 1974. He
+completed his postgraduate studies in 1976 at the same faculty, in the
+class of Professor Jovan Kratohvil. He has been a member of the
+Association of Fine Artists of Serbia (ULUS) since 1975, as well as of
+the Association of Abstract Artists Salon Réalités Nouvelles in Paris
+since 2015. From 1971 to 1985, he studied classical stonemasonry at the
+stonemasonry school in Pučišća on the island of Brač, Croatia. From 1982
+to 1992, he worked as a professor at the Technical School in Smederevo,
+and from 1985 to 1988, he was an associate of the stonemasonry workshop
+at the International Symposium “Marble and Sounds” in Aranđelovac. From
+1992 until his retirement in 2016, he was employed at the Faculty of
+Fine Arts in Belgrade, Department of Sculpture, as a professor of
+sculpture in the Stone Department. He has participated in numerous
+international symposiums in Pučišća, Ljubljana, Bihać, Orońsko (Poland),
+Aranđelovac, Bor, and Ripanj. He has held several solo exhibitions and
+taken part in a large number of group exhibitions in Serbia and
+abroad—in Croatia, Slovenia, North Macedonia, Bosnia and Herzegovina,
+Poland, Greece, and France. His artistic work has received multiple
+awards, and his pieces are found in museums, public institutions, and
+private collections both in Serbia and internationally.</p>
+<p><br></p>
+<p><img src="img/img2025/Mice%20Poptsis_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Mice%20Poptsis_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="milan-manić-serbia" class="section level3">
+<h3>Milan Manić (Serbia)</h3>
+<p>Milan Manić is an artist, digital author, and multimedia content
+creator, born in 1979 in Pirot. He is engaged in visual art, writing,
+and the production of educational and aesthetic video materials,
+primarily in the field of chess. After graduating from the Technical
+School in Pirot, he enrolled at the Faculty of Electronic Engineering in
+Niš in 1998. He left his studies in 2000 due to health reasons and then
+dedicated himself to art. Milan Manić is a member of several art
+associations: ULUS, the Association of Fine Artists of Pančevo (ULUP),
+and the Association of Fine and Applied Artists “Nova Art Scena” from
+Pirot. Since 2017, he has held the status of an independent artist. To
+date, he has held six solo exhibitions in Serbia and participated in
+more than one hundred and twenty group exhibitions in the country and
+abroad, including Bosnia and Herzegovina, North Macedonia, Cyprus,
+Spain, Bulgaria, Hungary, Brazil, Poland, Turkey, China, and Lithuania.
+His artistic work has received multiple awards. In addition to visual
+art, Milan Manić also writes short stories and poetry; he has published
+the short story collection <em>Sve te prevrtalice</em> (Pirot: Pi-press,
+2008) and the poetry collection <em>Sumpor</em> (Pirot Public Library,
+2022), and his work has been included in numerous collections and two
+anthologies. He collaborates with domestic and international magazines
+and has published in Montenegro, Bosnia and Herzegovina, and Croatia.
+Milan Manić lives and works in Pančevo.</p>
+<p><br></p>
+<p><img src="img/img2025/Milan%20Manic%CC%81_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Milan%20Manic%CC%81_02.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="milija-belić-serbiafrance" class="section level3">
+<h3>Milija Belić (Serbia/France)</h3>
+<p>Milija Belić is a visual artist, art theorist, and founder of
+cultural events. He was born in 1954 in Rudovci, near Lazarevac. He
+graduated in painting in 1978 from the Faculty of Fine Arts in Belgrade,
+Department of Painting. From 1990 to 1991, he completed master’s studies
+in visual arts and art sciences (U.F.R. d’Art Plastiques et Sciences de
+l’Art) at the University of Paris I – Panthéon Sorbonne. The following
+year (1991–1992), he earned a diploma in Advanced Studies in Aesthetics
+from the same institution. He defended his doctoral dissertation titled
+<em>Le rythme plastique. Prolégomènes à un Méta-Art</em> in 1994, also
+at Panthéon Sorbonne. He has been a member of ULUS since 1979. In
+addition, he is a member of numerous international art associations:
+AICA (International Association of Art Critics); Maison des Artistes,
+Paris; Taylor Foundation, Paris; Carrément Art Construit, Paris; the
+Committee of the Salon Réalités Nouvelles, Paris; and ACI – Art
+Construit International, Paris. Since 1978, he has actively exhibited
+solo in Serbia, France, Germany, and Italy. He has participated in more
+than two hundred and thirty group exhibitions in Serbia and abroad. His
+artistic work has earned him several recognitions, notably: the Drawing
+Award of the Faculty of Fine Arts, Belgrade (1974); a French government
+scholarship for professional development in Paris (1983–1984, under the
+mentorship of Vladimir Veličković); and the Vidovdan Award of the City
+of Lazarevac for outstanding contribution to culture (2004). In addition
+to his artistic practice, Milija Belić was the founder and long-time
+artistic director of the Modern Gallery in Lazarevac, as well as the
+initiator of the “Days of French-Serbian Friendship” and “Year of Japan
+in Serbia” events. He is the author of several theoretical books on art,
+most notably <em>Meta Art</em>, SKC, Belgrade, 1997, and <em>Apologie du
+rythme</em>, L’Harmattan, Paris, 2002.</p>
+<p><br></p>
+<p><img src="img/img2025/Milija%20Belic%CC%81_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Milija%20Belic%CC%81_02.jpg" width="400" /></p>
+<p><img src="img/img2025/Milija%20Belic%CC%81_03.jpg" width="400" /></p>
+<p><img src="img/img2025/Milija%20Belic%CC%81_04.jpg" width="400" /></p>
+<hr />
+</div>
+<div id="olivera-savić-popović-serbiasweden" class="section level3">
+<h3>Olivera Savić Popović (Serbia/Sweden)</h3>
+<p>Olivera Savić Popović was born in 1950 in Belgrade. She graduated in
+1977 from the Faculty of Fine Arts in Belgrade, Department of Painting,
+in the class of Professor Stojan Ćelić. From 1977 to 1979, she attended
+postgraduate studies at the same faculty and earned her master’s degree
+in 1982. She continued her professional development in 1997/1998 through
+the “Lighting the City” program at Konstfack – University of Arts,
+Crafts and Design in Stockholm, Sweden. She has been a member of the
+Association of Fine Artists of Serbia (ULUS) since 1977, and of the
+Swedish Artists’ Association (KRO) since 1996. She has received several
+domestic and international scholarships: in 1981, the “Moša Pijade”
+scholarship for a study stay in the Netherlands; also in 1981, support
+from the Fund for the Advancement of Young Artists in the Field of Fine
+and Applied Arts; in 1987, a residency at the Cité Internationale des
+Arts in Paris, France; and in 2008, a cultural scholarship from the
+Municipality of Nynäshamn, Sweden. Olivera Savić Popović has held
+twenty-two solo exhibitions in Serbia, Sweden, and Croatia, and has
+participated in over one hundred group exhibitions. Her artistic work
+has been awarded multiple times, including the Award of the Yugoslav
+Youth Colony in Ivanjica and the City of Nynäshamn Award for
+contributions to the arts. Her works are held in public and private
+collections in Serbia and abroad. Olivera Savić Popović lives and works
+in Sweden.</p>
+<p><br></p>
+<p><img src="img/img2025/Olivera%20Savic%CC%81%20Popovic%CC%81_01.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Olivera%20Savic%CC%81%20Popovic%CC%81_02.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="slobodan-knežević-abi-serbia" class="section level3">
+<h3>Slobodan Knežević Abi (Serbia)</h3>
+<p>Slobodan Knežević Abi was born in 1948 in Bačko Dobro Polje. He
+graduated from the Faculty of Fine Arts, Department of Printmaking, in
+1977, and completed his master’s studies in 1979 in the class of
+Professor Marko Krsmanović. He is a member of ULUS and ULUV. Since 1980,
+he has been employed at the Academy of Arts in Novi Sad, and since 1996
+he held the position of full professor for the subjects Printmaking with
+Technology and Drawing with Technology. He has been retired since 2016.
+Over the course of his long artistic career, he has exhibited prints,
+drawings, “cartons,” sculptures, collages, and paintings in more than
+thirty solo exhibitions in Serbia and abroad, including Hungary and
+Switzerland. He has participated in over three hundred group
+exhibitions. Since 1982, he has taken part in major biennials and
+international exhibitions in Zagreb, Berlin, Kraków, Katowice, Catania,
+Belgrade, Varna, Sofia, Tokyo, Gornji Milanovac, Užice, Łódź, Miskolc,
+and other cities. He has received seventeen awards for printmaking and
+painting, among the most notable: the “Golden Needle,” 67th Spring
+Exhibition of ULUS, Belgrade, 1995; the “Grand Seal” of the Graphic
+Collective, Belgrade, 1996; the “Silver Needle” at the International
+Drypoint Exhibition, Užice, 2005; the “First Prize” at the 6th EX-YU
+Printmaking Exhibition, Belgrade, 2012; and the “Medal for Lifetime
+Achievement” from the Vojvodina Institute for Culture, 2013. Slobodan
+Knežević Abi’s works are held in numerous museums throughout Serbia, as
+well as in private collections both in the country and abroad.</p>
+<p><br></p>
+<p><img src="img/img2025/Slobodan%20Knez%CC%8Cevic%CC%81%20Abi_01.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Slobodan%20Knez%CC%8Cevic%CC%81%20Abi_02.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="snežana-vujović-nikolić-serbia" class="section level3">
+<h3>Snežana Vujović Nikolić (Serbia)</h3>
+<p>Snežana Vujović Nikolić, a painter by vocation, was born in 1959 in
+Belgrade. She graduated in 1984 from the Faculty of Fine Arts in
+Belgrade, Department of Painting, and earned her master’s degree in 1987
+from the same faculty and department. She is a member of the Association
+of Fine Artists of Serbia (ULUS). Her artistic practice includes
+paintings, drawings, and sculptures. Since the mid-1980s, she has been
+actively exhibiting and has held twenty-eight solo exhibitions across
+Serbia and abroad, as well as participated in around forty group shows.
+Her paintings are part of numerous public and private collections in
+Serbia and internationally, including Montenegro, Austria, France,
+Russia, Canada, the United States, the Netherlands, Germany, and
+Croatia. Through the Ministry of Culture of Serbia, she has had eight of
+her works acquired.</p>
+<p><br></p>
+<p><img
+src="img/img2025/Snez%CC%8Cana%20Vujovic%CC%81%20Nikolic%CC%81_01.jpg"
+width="400" /></p>
+<p><img
+src="img/img2025/Snez%CC%8Cana%20Vujovic%CC%81%20Nikolic%CC%81_02.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="teodora-nikolić-serbia" class="section level3">
+<h3>Teodora Nikolić (Serbia)</h3>
+<p>Teodora Nikolić is a visual artist, born in 1998 in Belgrade. She
+completed her undergraduate and master academic studies in 2020–2021 at
+the University of Arts in Belgrade, Faculty of Applied Arts, Department
+of Applied Painting, under the mentorship of Full Professor Miroslav
+Lazović, MFA. She was awarded the “Dositeja” scholarship from the Fund
+for Young Talents for both undergraduate and master studies. Since 2023,
+she has been a doctoral student at the Faculty of Applied Arts in
+Belgrade, in the Department of Applied Arts and Design, under the
+mentorship of Dr. Tijana Kojić. As of 2024, she has been engaged as a
+research assistant at the same faculty, teaching Drawing and Painting
+within the departments of Textiles, Contemporary Clothing, Stage
+Costume, and Applied Sculpture. She is a member of ULUS and ULUPUDS.
+Actively engaged in visual art, she has held eight solo exhibitions and
+participated in over thirty group exhibitions in Serbia and the
+region.</p>
+<p><br></p>
+<p><img src="img/img2025/Teodora%20Nikolic%CC%81_01.jpg"
+width="400" /></p>
+<p><img src="img/img2025/Teodora%20NIkolic%CC%81_02.jpg"
+width="400" /></p>
+<hr />
+</div>
+<div id="vesko-gagović-montenegro" class="section level3">
+<h3>Vesko Gagović (Montenegro)</h3>
+<p>Vesko Gagović is a Montenegrin visual artist, born in 1963 in Nikšić.
+He graduated in 1988 from the Academy of Fine Arts in Sarajevo, where he
+also completed his master’s studies in 1991. Sarajevo was the city
+where, in 1990, he held his first solo exhibition. He has been a member
+of the Association of Fine Artists of Montenegro (ULUCG) since 1991.
+Gagović has received multiple awards for his artistic work, including:
+the “Zlatno oko” Gallery Award at the First Yugoslav Youth Biennial in
+1994 in Vršac; the Critics’ Award at the ULUCG exhibition in 1995 in
+Podgorica; an award at the 15th International Drawing Exhibition in 2001
+in Rijeka; the first UNESCO prize at the 4th International Biennial in
+2002 in Cetinje; and the Ministry of Culture of Montenegro Award in the
+Montenegrin Souvenir Competition in 2004 in Podgorica. He has held
+several solo exhibitions in Montenegro, Serbia, and Italy, and has
+participated in around one hundred group exhibitions. In 2019, he
+represented Montenegro at the 58th International Art Exhibition of the
+Venice Biennale with the project Odyssey (Floating Object).</p>
+<p><br></p>
+<p><img src="img/img2025/Vesko%20Gagovic%CC%81_01.jpg" width="400" /></p>
+<p><img src="img/img2025/Vesko%20Gagovic%CC%81_02.jpg" width="400" /></p>
+</div>
+
+<hr>
+<p style="text-align:center;">
+  <img src="img/logo/geometrija106px.png">
+</p>
+<p style="font-size:13px;text-align:center;">
+  <b>Contact: </b><a href = "mailto: mionamarkovicmarta@gmail.com">mionamarkovicmarta@gmail.com</a><br><br>
+  <a href="https://github.com/geometrija/geometrija.github.io"><img src="img/icons/github.png"></a>
+  <a href="https://www.facebook.com/GeometrijskaApstrakcija"><img src="img/icons/facebook.png"></a>
+  <a href="https://www.instagram.com/geometrija00/"><img src="img/icons/instagram.png"></a>
+</p>
+<p style="font-size:11px;text-align:center;"><b>Impressum</b><br>
+Dr Miona Marta Marković, Author<br>Dr Goran S. Milovanović, Production<br>Dr Mila Gvardiol, Design
+  <br><br>
+  <b>Belgrade, Serbia, 2025.</b>
+</p>
 
 
-		
-		</div>
-		
-		
-			
-		
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
 
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
-
-
-
-
-
-
-
-<script src='./js/bundle.min.js'></script>
-
-
-
-	</body>
+</body>
 </html>

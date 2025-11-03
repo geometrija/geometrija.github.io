@@ -1,0 +1,27 @@
+/* custom-fonts.css */
+/* Import Lato from Google Fonts with Latin + Latin-ext subset for Serbian Latin characters */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap&subset=latin,latin-ext');
+
+/* Apply the font across the site */
+body,
+html {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+}
+
+/* Links and other text */
+a {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Ensure fallback is consistent */
+*, *::before, *::after {
+  font-family: 'Lato', sans-serif;
+}
