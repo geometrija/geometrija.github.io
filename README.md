@@ -8,4 +8,4 @@ The design for the ***Geometrija*** project was provided by Serbian painter **Dr
 
 The ***Geometrija*** project is privately funded and non-profit.
 
-![Alt text](img/log/geometrija106px.png)
+![Alt text](img/logo/geometrija106px.png)
